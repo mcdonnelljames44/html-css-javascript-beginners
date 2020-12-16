@@ -1,0 +1,56 @@
+
+body {
+    font-family: Verdana, Arial, sans-serif
+}
+
+legend {
+    background: purple;
+    border-radius: 10px;
+    border: white;
+    padding: 12px;   
+} 
+
+fieldset {
+    background: lavender;
+    border: 10px solid darkblue;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    width: 720px;
+}
+    
+div {
+    margin: 10px
+}
+
+label {
+    display: inline-block;
+    text-align: auto;
+    vertical-align: top;
+    width: 200px;
+}
+
+input[type="radio"]+label, input[type="checkbox"]+label {
+    width: auto;
+}
+
+.range-caption {
+    background: darkcyan;
+    color: white;
+    padding: 6px;
+    text-align: center;
+}
+input[type="submit"] {
+    background: darkcyan;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    padding: 12px;
+}
+
+div:hover {
+    color: blue;
+}
+
+
+
+
