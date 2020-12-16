@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Onclick Demo</title>
+</head>
+<body>
+    <h1 onclick="changeBackground();">Click Me</h1>
+
+    <script>
+        function changeBackground() {
+            const h1 = document.getElementsByTagName('h1')[0];
+            h1.style.background = 'orange';
+        }
+    </script>
+</body>
+</html>

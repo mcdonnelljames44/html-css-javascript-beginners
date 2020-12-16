@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Event Listener Demo 1</title>
+    <style>
+        div {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div>Move your mouse over this text then off!</div>
+
+    <script>
+        const div = document.querySelector('div');
+        
+        div.addEventListener('mouseover', changeTextColor);
+        div.addEventListener('mouseout', revert);
+
+        function changeTextColor() {
+            div.style.color = 'orange';
+        }
+
+        function revert() {
+            div.style.color = 'black';
+        }
+    </script>
+</body>
+</html>

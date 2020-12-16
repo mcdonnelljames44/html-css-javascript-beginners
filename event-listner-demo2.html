@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Event Listener Demo 2</title>
+    <style>
+        div {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div onmouseover="changeTextColor();" onmouseover="changeBackground();" onmouseout="revert();">Move your mouse over this text then off!</div>
+
+    <script>
+        // This demo does not show any actual event listeners
+        // It demonstrates how with more than one inline onmouseover event handler, only the first will work
+        const div = document.querySelector('div');
+
+        function changeTextColor() {
+            div.style.color = 'orange';
+        }
+
+        function changeBackground() {
+            div.style.background = 'purple';
+        }
+
+        function revert() {
+            div.style.color = 'black';
+            div.style.background = 'white';
+        }
+    </script>
+</body>
+</html>

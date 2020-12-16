@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Onmousedown & Onmouseup Demo</title>
+</head>
+<body>
+    <h1 onmousedown="changeBackground();" onmouseup="revertBackground()">Click Me</h1>
+
+    <script>
+        const h1 = document.getElementsByTagName('h1')[0];
+
+        function changeBackground() {
+            h1.style.background = 'orange';
+        }
+        function revertBackground() {
+            h1.style.background = 'white';
+        }
+    </script>
+</body>
+</html>

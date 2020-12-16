@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" /> 
+    </head>
+    <body>
+        <h1>Color Guessing Game</h1>
+        <button type="button" onclick="runGame()">Start Game</button> 
+    <script> 
+            alert("ok");
+            const colors = ["coral", "olive", "khaki", "lime", "red", "maroon", "yellow", "green", "orchid"];
+            const alpha_colors = colors.sort();
+            return alpha_colors;
+            const finished = false;
+            const guesses = 0;
+    
+            function runGame(){
+                alert("ok so far");
+                var num_colors = colors.length-1;
+                var target = colors[math.floor.random()*num_colors]
+                do{
+                    var color_guess=prompt("I am thinking of these colors \n\n"+alpha_colors+"What color am I thinking of?");
+                    guesses += 1;
+                    finished=checkguess();
+                } while(finished=false);
+            }
+
+            function checkguess(){
+                if(colors.indexOf(color_guess)=-1) {
+                    alert("Sorry.  I don't recognize your color. \n\n Please try again. ");
+                    return false;
+                }
+                if(color_guess<target) {
+                    alert("Sorry, your guess is not correct. \n\n Hint: your color is alphabetically lower than mine");
+                    return false;
+                }
+                if(color_guess>target) {
+                    alert("Sorry, your guess is not correct. \n\n Hint: your color is alphabetically higher than mine");
+                    return false;
+                }
+                alert("Congratulations! You have guessed the color! \n\n It took you "+guesses+"guesses to finish the game! \n\n You can see the color in the background");                     
+                return true;
+            }
+            style.background-color = target
+        </script>
+    </body>
+</html>

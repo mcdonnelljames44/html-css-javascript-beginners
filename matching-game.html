@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Matching Game</title>
+</head>
+<body>
+    <body onload="generateFaces()"> 
+    <h1>Matching Game</h1>
+
+    <p>Click on the extra smiling face on the left</p>
+    
+    <div id="leftSide"></div>
+    <div id="rightSide"></div>
+    
+    <style>
+        img {
+            position:absolute;
+        }
+
+        div {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+        }
+
+        #rightSide {
+            left: 500px;
+            border-left: 1px solid;        
+        }
+    </style>
+
+    <script>
+        let numberOffaces=5;
+        let i=0;
+
+        const theLeftSide =document.querySelector("#leftSide");
+        const theRightSide =document.querySelector("#RightSide");
+
+        function generateFaces() {
+            for (let i=0; i < numberOffaces; i++) {
+                console.log("loop iteration#");
+
+                const face =document.createElement("img");
+                
+                       
+                face.src = "images/smile.png";
+            
+                randomTop = Math.floor(Math.random() * 400) + 1;
+                randomleft = Math.floor(Math.random() * 400) + 1;
+                 
+                face.style.top = randomTop + 'px';
+                face.style.left = randomleft + 'px';
+
+                theLeftSide.appendChild(face); 
+                         
+            }
+
+            const leftSideImages = theLeftSide.cloneNode(true);
+            leftSideImages.removeChild(LeftSideImages.lastChild);
+
+            theRightSide.appendChild(leftSideImages);
+
+        }
+    </script>
+    
+</body>
+</html>

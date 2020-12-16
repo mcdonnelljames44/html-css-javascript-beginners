@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="=en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Magicial Mystery Theater</title>
+    </head>
+    <body>
+        <h1>Magicial Mystery Theater</h1>
+        <button type="button" onclick="buyTicket()">Purchase Ticket</button>
+        <script>
+             const GENERAL_ADMISSION_TICKET_COST = 20;
+             const CHILD_AND_SENIOR_TICKET_COST = 10;
+             const MATINEE_DISCOUNT =3;
+
+             function buyTicket () {
+                   const age = prompt('What is your age?');
+                   let cost = getBaseTicket(age);
+
+                   const isMatinee = prompt('Are you attending a matinee show?');
+                   if ((isMatinee==='yes') || (isMatinee=== 'y')) {
+                       cost = cost-MATINEE_DISCOUNT;
+                   }
+                    
+                   alert( 'Your ticket will cost: $' + cost);
+             }
+
+             function getBaseTicket(age) {
+                if ((age <=12) || (age >=65)) {
+                       return CHILD_AND_SENIOR_TICKET_COST;
+                   }
+                   return GENERAL_ADMISSION_TICKET_COST;
+             }
+        </script>
+    </body>
+</html>

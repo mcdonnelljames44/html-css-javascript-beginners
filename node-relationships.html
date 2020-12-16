@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>DOM Relationships Demo</title>
+    <style>
+        table, table * {
+            border: 2px solid;
+            padding: 10px;
+        }
+        td {
+            background: palegreen;
+        }
+        body {
+            font: 1.2em "Source Sans Pro", Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM Relationships Demo</h1>
+    <p>
+        Click on any element to see the DOM path to its node
+    </p>
+    <h2>LISTS & ANCHORS</h2>
+    <ul>
+        <li><a href="">Unordered Listitem Anchor</a></li>
+        <li>Unordered Listitem 4
+            <ol>
+                <li><a href="">Nested Ordered Listitem Anchor</a></li>
+                <li>Nested Ordered Listitem 2</li>
+            </ol>
+        </li>
+    </ul>
+    <h2>TABLE</h2>
+    <table>
+        <tbody>
+            <tr>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+                <td>Cell 3</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function handleClick(event) {
+            event.stopPropagation();
+            let node = event.target;
+            let thisPath = node.nodeName;
+            while (node.parentNode) {
+                node = node.parentNode;
+                thisPath = node.nodeName + " > " + thisPath;
+            }
+            alert(thisPath);
+        }
+
+        function attachHandler(node) {
+            if (node === null) {
+                return;
+            }
+            node.onclick = handleClick;
+            for (child of node.childNodes) {
+                attachHandler(child);
+            }
+        }
+        attachHandler(document.body);
+    </script>
+</body>
+</html>

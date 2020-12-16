@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Timer Demo 2</title>
+    <style>
+        img {
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+</head>
+<body onload="moveBanana()">
+    <img src="images/banana.png" alt="A yellow banana image" />
+    <button type="button" onclick="clearTimeout(bananaTimer);">STOP BANANA</button>
+    <script>
+        let xPosition = 0;
+        let theBanana = document.querySelector('img');
+        let bananaTimer = 0;
+        function moveBanana() {
+            xPosition += 1;
+            theBanana.style.left = xPosition + 'px';
+            bananaTimer = setTimeout(moveBanana, 50);
+        }
+    </script>
+</body>
+</html>

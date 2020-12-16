@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Matching Game</title>
+	<h1  id="Matching Game">Matching Game</h1>
+	Click on the extra smiling face on the left 
+	<p>
+    <label>Score</label>
+	<input type="text" id = "yourScore" value = "0" />
+    </p>
+    <style>
+        head {
+            margin:center ;
+            margin-block: center;
+        }
+        body {
+            background-color: blue;
+            display: block; 
+        }
+        h1 {
+            margin: auto; 
+            width: 80%;
+            margin-block: center;
+            text-align: center;
+            width: center;
+            padding: 50px;
+            border: 5px solid;
+            margin: 100px;
+            font-family: Tahoma, Arial, sans-serif;
+        }
+		input {
+            position:relative;
+            margin: auto;
+		}
+        img {
+            position:absolute;
+            margin: auto;
+            border-right: auto ;
+        }        
+        div {
+            position:absolute;
+            width:500px;
+            height:500px;
+            display: block;  
+        }
+        #rightSide {
+            left:500px;
+            border-left:10px solid black
+            
+        }
+        h1 {
+            color:black;
+            font: 32px Garamond, Helvetica, serif;
+            margin-block: center;
+            text-align: center;
+  
+        }  
+        p {
+            padding-left: 400px;
+        }     
+    </style>
+</head>
+<body onload="generateFaces()">
+    
+    <div id="leftSide">        
+    </div>
+        
+    <div id="rightSide">   
+    </div>
+        
+    <script>
+	var curScore      = 0;
+    const maxTop        = 400;
+    const maxLeft       = 400;
+    var numberOfFaces = 5;
+	const numFaceInc	  = 5;
+	const scoreBox      = document.getElementById("yourScore");
+    const theLeftSide   = document.getElementById("leftSide");
+    const theRightSide  = document.getElementById("rightSide");
+    const theBody       = document.body;
+      
+    theBody.onclick = gameOver ;
+                             
+    function gameOver() {
+        alert("You Lost");
+        theBody.onclick = null;
+        theLeftSide.lastChild.onclick = null;
+		location.reload();
+    }   
+        
+    function generateFaces() {    
+        for (i=0; i<numberOfFaces; ++i) {
+        
+            const smile = document.createElement("img");
+            smile.setAttribute('src','images/smile.png');
+            
+            const curTop  = Math.floor( Math.random() * maxTop );
+            const curLeft = Math.floor( Math.random() * maxLeft );
+            
+            smile.style.top  = curTop.toString()  + "px";
+            smile.style.left = curLeft.toString() + "px"
+
+            theLeftSide.appendChild(smile);            
+        }
+        
+        const leftSideImages = theLeftSide.cloneNode(true);        
+        leftSideImages.removeChild(leftSideImages.lastChild);
+        
+        theRightSide.appendChild(leftSideImages); 
+        
+        theLeftSide.lastChild.onclick = 
+
+        function nextLevel(event) {
+        			
+            event.stopPropagation();
+			++curScore;
+			scoreBox.setAttribute('value', curScore.toString() );
+            numberOfFaces += numFaceInc;
+            deleteSmiles();
+            generateFaces();            
+        }
+    }        
+        
+    function deleteSmiles() {
+             while(theLeftSide.firstChild) {           
+             theLeftSide.removeChild(theLeftSide.firstChild);        
+        }
+        
+             while(theRightSide.firstChild) { 
+            theRightSide.removeChild(theRightSide.firstChild);
+        }
+    }
+    </script>    
+</body>
+</html>
